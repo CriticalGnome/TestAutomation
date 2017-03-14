@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
- * Project AT
+ * Project TestAutomation
  * Created on 13.03.2017.
  *
  * @author CriticalGnome

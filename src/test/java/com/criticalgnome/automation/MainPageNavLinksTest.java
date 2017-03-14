@@ -12,7 +12,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.Title;
 
 /**
- * Project AT
+ * Project TestAutomation
  * Created on 14.03.2017.
  *
  * @author CriticalGnome

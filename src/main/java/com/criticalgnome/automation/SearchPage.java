@@ -8,7 +8,7 @@ import ru.yandex.qatools.allure.annotations.Attachment;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
- * Project AT
+ * Project TestAutomation
  * Created on 14.03.2017.
  *
  * @author CriticalGnome

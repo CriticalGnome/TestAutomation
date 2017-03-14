@@ -10,7 +10,7 @@ import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
 /**
- * Project AT
+ * Project TestAutomation
  * Created on 14.03.2017.
  *
  * @author CriticalGnome
