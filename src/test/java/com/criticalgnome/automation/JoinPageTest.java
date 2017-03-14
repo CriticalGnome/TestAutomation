@@ -38,7 +38,7 @@ public class JoinPageTest {
     @Features("Join Page")
     @Stories("Fields")
     @Test
-    public void joinPageFieldsEmptyTest() {
+    public void joinPageFieldsEmptyTest() throws Exception {
         site.mainPage().clickMenuLinkSignUp();
         site.JoinPage().clearLoginField();
         site.JoinPage().clearEmailField();
@@ -52,7 +52,7 @@ public class JoinPageTest {
     @Features("Join Page")
     @Stories("Fields")
     @Test
-    public void joinPageFieldsTakenTest() {
+    public void joinPageFieldsTakenTest() throws Exception {
         site.mainPage().clickMenuLinkSignUp();
         site.JoinPage().clearLoginField();
         site.JoinPage().clearEmailField();
@@ -69,7 +69,7 @@ public class JoinPageTest {
     @Stories("Fields")
     @Severity(SeverityLevel.CRITICAL)
     @Test
-    public void joinPageFieldsSQLInjectionTest() {
+    public void joinPageFieldsSQLInjectionTest() throws Exception {
         site.mainPage().clickMenuLinkSignUp();
         site.JoinPage().clearLoginField();
         site.JoinPage().clearEmailField();

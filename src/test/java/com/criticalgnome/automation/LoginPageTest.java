@@ -38,10 +38,8 @@ public class LoginPageTest {
     @Features("Login Page")
     @Stories("Fields")
     @Test
-    public void loginPageFieldsEmptyTest() {
+    public void loginPageFieldsEmptyTest() throws Exception {
         site.mainPage().clickMenuLinkSignIn();
-        site.loginPage().clearLoginField();
-        site.loginPage().clearPasswordField();
         site.loginPage().clickSubmitButton();
         Assert.assertNotNull("Page not valid", site.loginPage().returnAlertWindow());
     }
@@ -51,7 +49,7 @@ public class LoginPageTest {
     @Features("Login Page")
     @Stories("Fields")
     @Test
-    public void loginPageFieldsAbracadabraTest() {
+    public void loginPageFieldsAbracadabraTest() throws Exception {
         site.mainPage().clickMenuLinkSignIn();
         site.loginPage().clearLoginField();
         site.loginPage().clearPasswordField();
@@ -67,7 +65,7 @@ public class LoginPageTest {
     @Stories("Fields")
     @Severity(SeverityLevel.CRITICAL)
     @Test
-    public void loginPageFieldsSQLInjectionTest() {
+    public void loginPageFieldsSQLInjectionTest() throws Exception {
         site.mainPage().clickMenuLinkSignIn();
         site.loginPage().clearLoginField();
         site.loginPage().clearPasswordField();
