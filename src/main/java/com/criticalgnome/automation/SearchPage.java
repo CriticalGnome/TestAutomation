@@ -1,4 +1,4 @@
-package com.criticalgnome.at.pages;
+package com.criticalgnome.automation;
 
 import com.google.common.base.Predicate;
 import org.openqa.selenium.*;

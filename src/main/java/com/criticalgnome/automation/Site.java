@@ -1,9 +1,5 @@
-package com.criticalgnome.at;
+package com.criticalgnome.automation;
 
-import com.criticalgnome.at.pages.JoinPage;
-import com.criticalgnome.at.pages.LoginPage;
-import com.criticalgnome.at.pages.MainPage;
-import com.criticalgnome.at.pages.SearchPage;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +23,7 @@ public class Site {
     public LoginPage loginPage() { return new LoginPage(driver); }
     public JoinPage JoinPage() { return new JoinPage(driver); }
 
-    @Step("Open URl '{0}'")
+    @Step("Open URl {0}")
     public void openPage(String url) {
         driver.get(url);
     }

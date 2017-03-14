@@ -1,4 +1,4 @@
-package com.criticalgnome.at;
+package com.criticalgnome.automation;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.junit.After;
@@ -21,13 +21,12 @@ import ru.yandex.qatools.allure.annotations.Title;
 @Description("Test top navigation bar links")
 public class MainPageNavLinksTest {
     private Site site;
-    private String url = "https://github.com/";
 
     @Before
     public void setUp() {
         ChromeDriverManager.getInstance().setup();
         site = new Site(new ChromeDriver());
-        site.openPage(url);
+        site.openPage(Constants.SITE_URL);
         site.maximizeWindow();
     }
 
@@ -43,7 +42,7 @@ public class MainPageNavLinksTest {
     @Test
     public void menuLinkFeaturesTest() throws Exception {
         site.mainPage().clickMenuLinkFeatures();
-        Assert.assertEquals("Features link send to invalid page", "https://github.com/features", site.getPageUrl());
+        Assert.assertEquals("Features link send to invalid page", Constants.FEATURES_PAGE_LINK, site.getPageUrl());
     }
 
     @Title("Test 'Explore' link")
@@ -53,7 +52,7 @@ public class MainPageNavLinksTest {
     @Test
     public void menuLinkExploreTest() throws Exception {
         site.mainPage().clickMenuLinkExplore();
-        Assert.assertEquals("Explore link send to invalid page", "https://github.com/explore", site.getPageUrl());
+        Assert.assertEquals("Explore link send to invalid page", Constants.EXPLORE_PAGE_LINK, site.getPageUrl());
     }
 
     @Title("Test 'Pricing' link")
@@ -63,6 +62,6 @@ public class MainPageNavLinksTest {
     @Test
     public void menuLinkPricingTest() throws Exception {
         site.mainPage().clickMenuLinkPricing();
-        Assert.assertEquals("Pricing link send to invalid page", "https://github.com/pricing", site.getPageUrl());
+        Assert.assertEquals("Pricing link send to invalid page", Constants.PRICING_PAGE_LINK, site.getPageUrl());
     }
 }

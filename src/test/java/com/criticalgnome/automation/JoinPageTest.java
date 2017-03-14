@@ -1,4 +1,4 @@
-package com.criticalgnome.at;
+package com.criticalgnome.automation;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.junit.After;
@@ -19,13 +19,12 @@ import ru.yandex.qatools.allure.model.SeverityLevel;
 @Description("Stress test for join page")
 public class JoinPageTest {
     private Site site;
-    private String url = "https://github.com/";
 
     @Before
     public void setUp() {
         ChromeDriverManager.getInstance().setup();
         site = new Site(new ChromeDriver());
-        site.openPage(url);
+        site.openPage(Constants.SITE_URL);
         site.maximizeWindow();
     }
 
@@ -58,8 +57,8 @@ public class JoinPageTest {
         site.JoinPage().clearLoginField();
         site.JoinPage().clearEmailField();
         site.JoinPage().clearPasswordField();
-        site.JoinPage().putTextIntoLoginField("CriticalGnome");
-        site.JoinPage().putTextIntoEmailField("lord.skiminok@gmail.com");
+        site.JoinPage().putTextIntoLoginField(Constants.MY_ACCOUNT);
+        site.JoinPage().putTextIntoEmailField(Constants.MY_EMAIL);
         Assert.assertNotNull("Script not working properly", site.JoinPage().returnUsernameTakenAlertWindow());
         Assert.assertNotNull("Script not working properly", site.JoinPage().returnEmailTakenAlertWindow());
     }
@@ -75,9 +74,9 @@ public class JoinPageTest {
         site.JoinPage().clearLoginField();
         site.JoinPage().clearEmailField();
         site.JoinPage().clearPasswordField();
-        site.JoinPage().putTextIntoLoginField("'");
-        site.JoinPage().putTextIntoEmailField("';'");
-        site.JoinPage().putTextIntoPasswordField("\"");
+        site.JoinPage().putTextIntoLoginField(Constants.QUOTATION);
+        site.JoinPage().putTextIntoEmailField(Constants.SEMICOLON);
+        site.JoinPage().putTextIntoPasswordField(Constants.DOUBLE_QUOTATION);
         site.JoinPage().clickSubmitButton();
         Assert.assertNotNull("Page not valid", site.JoinPage().returnProblemAlertWindow());
     }

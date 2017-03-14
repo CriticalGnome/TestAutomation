@@ -1,4 +1,4 @@
-package com.criticalgnome.at;
+package com.criticalgnome.automation;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.junit.After;
@@ -19,13 +19,12 @@ import ru.yandex.qatools.allure.model.SeverityLevel;
 @Description("Testing site search engine")
 public class SearchTest {
     private Site site;
-    private String url = "https://github.com/";
 
     @Before
     public void setUp() {
         ChromeDriverManager.getInstance().setup();
         site = new Site(new ChromeDriver());
-        site.openPage(url);
+        site.openPage(Constants.SITE_URL);
         site.maximizeWindow();
     }
 
@@ -42,15 +41,15 @@ public class SearchTest {
     @Severity(SeverityLevel.CRITICAL)
     public void searchOnTwoPagesTest() throws Exception {
         site.mainPage().clearSearchField();
-        site.mainPage().putTextToSearchField("CriticalGnome");
+        site.mainPage().putTextToSearchField(Constants.MY_ACCOUNT);
         site.mainPage().sendEnterToSearchField();
         site.searchPage().clearSearchField();
-        site.searchPage().putTextToSearchField("CriticalGnome");
+        site.searchPage().putTextToSearchField(Constants.MY_ACCOUNT);
         site.searchPage().clickSearchButton();
         site.searchPage().openMyRepository();
         site.makeScreenShot();
         Assert.assertEquals("Page for CriticalGnome Repository is invalid",
-                "https://github.com/CriticalGnome/criticalgnome.github.io",
+                Constants.MY_GITHUB_SITE_PAGE_LINK,
                 site.getPageUrl());
     }
 }

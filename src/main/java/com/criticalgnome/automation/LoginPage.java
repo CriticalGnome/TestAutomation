@@ -1,4 +1,4 @@
-package com.criticalgnome.at.pages;
+package com.criticalgnome.automation;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

@@ -1,4 +1,4 @@
-package com.criticalgnome.at;
+package com.criticalgnome.automation;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.junit.After;
@@ -19,13 +19,12 @@ import ru.yandex.qatools.allure.model.SeverityLevel;
 @Description("Stress test for login page")
 public class LoginPageTest {
     private Site site;
-    private String url = "https://github.com/";
 
     @Before
     public void setUp() {
         ChromeDriverManager.getInstance().setup();
         site = new Site(new ChromeDriver());
-        site.openPage(url);
+        site.openPage(Constants.SITE_URL);
         site.maximizeWindow();
     }
 
@@ -56,8 +55,8 @@ public class LoginPageTest {
         site.mainPage().clickMenuLinkSignIn();
         site.loginPage().clearLoginField();
         site.loginPage().clearPasswordField();
-        site.loginPage().putTextInLoginField("AbRaCaDaBrA");
-        site.loginPage().putTextInPasswordField("aBrAcAdAbRa");
+        site.loginPage().putTextInLoginField(Constants.ABRACADABRA1);
+        site.loginPage().putTextInPasswordField(Constants.ABRACADABRA2);
         site.loginPage().clickSubmitButton();
         Assert.assertNotNull("Page not valid", site.loginPage().returnAlertWindow());
     }
@@ -72,8 +71,8 @@ public class LoginPageTest {
         site.mainPage().clickMenuLinkSignIn();
         site.loginPage().clearLoginField();
         site.loginPage().clearPasswordField();
-        site.loginPage().putTextInLoginField("'");
-        site.loginPage().putTextInPasswordField("\"");
+        site.loginPage().putTextInLoginField(Constants.QUOTATION);
+        site.loginPage().putTextInPasswordField(Constants.DOUBLE_QUOTATION);
         site.loginPage().clickSubmitButton();
         Assert.assertNotNull("Page not valid", site.loginPage().returnAlertWindow());
     }
